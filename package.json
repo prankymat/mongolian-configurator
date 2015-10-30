@@ -1,0 +1,30 @@
+{
+  "name": "mongolian-configurator",
+  "version": "0.0.1",
+  "description": "Configurator for mongolian, a VPNed hotspot.",
+  "author": "Matthew <9029537@gmail.com>",
+  "contributors": [
+    "Matthew Wo <9029537@gmail.com>"
+  ],
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prankymat/mongolian-configurator"
+  },
+  "bugs": {
+    "url": "https://github.com/prankymat/mongolian-configurator/issues"
+  },
+  "keywords": [
+    "mongolian",
+    "vpn",
+    "hotspot"
+  ],
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "node-wireless":"git://github.com/prankymat/node-wireless",
+    "fibers": "~1.0.7"
+  }
+}
