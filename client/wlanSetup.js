@@ -10,17 +10,13 @@ Template.wlanSetup.helpers({
 Template.wlanStatus.helpers({
   currentWlan: function() {
     var profile = Settings.findOne({namespace:"wlanProfile"});
-    return profile;
+    return profile || {};
   },
 
   wlanStatus: function() {
-    return Session.get('wlanStatus');
+    var wlanStatus = Settings.findOne({namespace:"wlanStatus"}) || {};
+    return wlanStatus.status || "";
   }
-})
-
-Tracker.autorun(function(){
-  var wlanStatus = Settings.findOne({namespace:"wlanStatus"});
-  Session.set('wlanStatus', (wlanStatus || {}).status);
 })
 
 Template.wlanSetup.onRendered(function(){
@@ -40,6 +36,21 @@ Template.wlanSetup.events({
       });
 
       Session.set('availableNetworks', array);
+    });
+  },
+
+  'click #join': function() {
+    var ssid = $("#ssid_group :radio:checked").attr('id');
+    var password = $("#password").val();
+
+    var network = _.find(Session.get('availableNetworks'), function(network){
+      return network.ssid === ssid;
+    });
+
+
+    console.log(network, password);
+    Meteor.call('join_network', network, password, function(result){
+      console.log("result", result)
     });
   }
 })

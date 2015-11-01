@@ -24,7 +24,7 @@
   ],
   "license": "BSD-2-Clause",
   "dependencies": {
-    "node-wireless":"git://github.com/prankymat/node-wireless",
+    "node-wireless": "git://github.com/prankymat/node-wireless",
     "fibers": "~1.0.7"
   }
 }

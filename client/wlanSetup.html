@@ -13,7 +13,7 @@
       <button type="button" id="scan">Rescan network</button>
     </form>
 
-    <form>
+    <form id="ssid_group">
       {{#each networks}} {{> network}} {{/each}}
     </form>
   </section>
@@ -21,7 +21,7 @@
 
 <template name="wlanStatus">
 
-  <table border="1" style="width:20%">
+  <table border="1" style="width:50%">
     <tr>
       <td>wlan Status</td>
       <td>{{wlanStatus}}</td>
@@ -35,15 +35,11 @@
       <td>MAC</td>
       <td>{{currentWlan.ap.mac}}</td>
     </tr>
-    <tr>
-      <td>Password</td>
-      <td>{{currentWlan.ap.password}}</td>
-    </tr>
   </table>
 
 </template>
 
 <template name="network">
-  <input type="radio" name="group1">{{ssid}}
+  <input type="radio" name="group1" id="{{ssid}}">{{ssid}}
   <br>
 </template>
